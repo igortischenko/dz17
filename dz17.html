@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        Student.prototype = {
+            constructor: Student,
+            getAverage: array => {
+                return array.reduce((acc, item) => {
+                    return acc += item;
+                }, 0) / array.length;
+            },
+            addToArray: (array, value) => {
+                let index = array.findIndex(index => index === undefined);
+                if (index != -1) array.splice(index, 1, value);
+                return array;
+            },
+            age: function () {
+                return new Date().getFullYear() - this.byear;
+            },
+            gpa: function () {
+                return this.getAverage(this.grade);
+            },
+            present: function () {
+                return this.addToArray(this.attendance, true);
+            },
+            absent: function () {
+                return this.addToArray(this.attendance, false);
+            },
+            mark: function (numb) {
+                if (numb > 0 && numb <= 10) return this.addToArray(this.grade, numb);
+                throw 'The mark must be from 1 to 10!';
+            },
+            summary: function () {
+                let gradeRes = this.getAverage(this.grade);
+                let attendanceRes = this.getAverage(this.attendance)
+
+                if (gradeRes > 9 && attendanceRes >= 0.9) return 'Ути какой молодчинка!';
+                if (gradeRes <= 9 || attendanceRes <= 0.9) return 'Норм, но можно лучше!';
+                if (gradeRes < 9 && attendanceRes < 0.9) return 'Редиска!';
+            },
+        }
+
+        function Student(name, surname, byear) {
+            this.name = name;
+            this.surname = surname;
+            this.byear = byear;
+            this.attendance = new Array(10);
+            this.grade = new Array(10);
+        }
+
+        // let igor = new Student('Igor', 'Tischenko', 1997);
+        // igor.present();
+        // igor.absent();
+        // igor.present();
+        // igor.present();
+        // igor.absent();
+        // igor.present();
+        // igor.present();
+        // igor.present();
+        // igor.present();
+        // igor.present();
+
+        // igor.mark(9);
+        // igor.mark(10);
+        // igor.mark(9);
+        // igor.mark(10);
+        // igor.mark(10);
+        // igor.mark(10);
+        // igor.mark(10);
+        // igor.mark(10);
+        // igor.mark(10);
+        // igor.mark(10);
+
+        // console.log(igor.age());
+        // console.log(igor.gpa());
+        // console.log(igor.summary());
+        // console.log(igor);
+
+        // let oleg = new Student('Oleg', 'Ololo', 1988);
+
+        // oleg.present();
+        // oleg.present();
+        // oleg.present();
+        // oleg.absent();
+        // oleg.present();
+        // oleg.present();
+        // oleg.present();
+        // oleg.present();
+        // oleg.present();
+        // oleg.present();
+
+        // oleg.mark(9);
+        // oleg.mark(9);
+        // oleg.mark(9);
+        // oleg.mark(7);
+        // oleg.mark(7);
+        // oleg.mark(9);
+        // oleg.mark(9);
+        // oleg.mark(10);
+        // oleg.mark(9);
+        // oleg.mark(10);
+
+        // console.log(oleg.age());
+        // console.log(oleg.gpa());
+        // console.log(oleg.summary());
+        // console.log(oleg);
+        
+    </script>
+</body>
+
+</html>
